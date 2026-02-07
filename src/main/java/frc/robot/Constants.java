@@ -9,6 +9,10 @@ public final class Constants {
     
     }
     public static final class FuelConstants {
+        public static final int FEEDER_MOTOR_CURRENT_LIMIT=60;
+        public static final int LAUNCHER_MOTOR_CURRENT_LIMIT=60;
+        
+        
         public static final int FEEDER_MOTOR_ID = 6;
         public static final int INTAKE_LAUNCHER_MOTOR_ID = 5;
         public static final double INTAKING_FEEDER_VOLTAGE = -12;
