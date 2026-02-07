@@ -10,7 +10,7 @@ public class Drive extends Command{
     CANDriveSubsystem driveSubsystem;
     CommandXboxController controller;
 
-    public Drive(CANDriveSubsystem driveSubsystem, CommandXboxController driverController){
+    public Drive(CANDriveSubsystem driveSystem, CommandXboxController driverController){
     addRequirements(driveSystem);
     driveSubsystem=driveSystem;
     controller=driverController;

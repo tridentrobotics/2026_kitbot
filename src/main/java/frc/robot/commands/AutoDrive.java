@@ -7,7 +7,7 @@ public class AutoDrive extends Command{
     CANDriveSubsystem driveSubsystem;
     double xSpeed, zRotation;
 
-    public AutoDrive(CANDriveSubsystem driveSubsystem, double xSpeed, double zRotation){
+    public AutoDrive(CANDriveSubsystem driveSystem, double xSpeed, double zRotation){
         addRequirements(driveSystem);
         driveSubsystem=driveSystem;
         this.xSpeed=xSpeed;
