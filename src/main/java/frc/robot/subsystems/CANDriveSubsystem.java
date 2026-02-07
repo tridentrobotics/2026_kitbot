@@ -22,11 +22,30 @@ public class CANDriveSubsystem extends SubsystemBase {
         rightFollower = new SparkMax(RIGHT_FOLLOWER_ID, MotorType.kBrushed);
         
         drive = new DifferentialDrive(leftLeader, rightLeader);
+        
         leftLeader.setCANTimeout(250);
         leftFollower.setCANTimeout(250);
         rightLeader.setCANTimeout(250);
         rightFollower.setCANTimeout(250);
+
+        SparkMaxConfig config = new SparkMaxConfig();
+        config.voltageCompensation(12);
+        config.smartCurrentLimit(DRIVE_MOTOR_CURRENT_LIMIT);
+        config.follow(leftLeader);
+        leftFollower.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+        config.follow(rightLeader);
+        rightFollower.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
+        config.disableFollowerMode();
+        rightLeader.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+        config.inverted(true);
+        leftLeader.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     }
     
-    
+    @Override
+    public void periodic() {
+    }
+    public void driveArcade(double xSpeed, double zRotation) {
+        drive.arcadeDrive(xSpeed, zRotation);
+    } 
 }
