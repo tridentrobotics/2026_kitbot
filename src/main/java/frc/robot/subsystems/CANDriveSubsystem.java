@@ -15,6 +15,7 @@ public class CANDriveSubsystem extends SubsystemBase {
     private final SparkMax rightLeader;
     private final SparkMax rightFollower;
     private final DifferentialDrive drive;
+    @SuppressWarnings("removal")
     public CANDriveSubsystem(){
         leftLeader = new SparkMax(LEFT_LEADER_ID, MotorType.kBrushed);
         leftFollower = new SparkMax(LEFT_FOLLOWER_ID, MotorType.kBrushed);

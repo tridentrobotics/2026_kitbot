@@ -12,6 +12,7 @@ import static frc.robot.Constants.FuelConstants.*;
 public class CANFuelSubsystem extends SubsystemBase {
     private final SparkMax feederRoller;
     private final SparkMax intakeLauncherRoller;
+    @SuppressWarnings("removal")
     public CANFuelSubsystem() {
         intakeLauncherRoller = new SparkMax(INTAKE_LAUNCHER_MOTOR_ID, MotorType.kBrushed);
         feederRoller = new SparkMax(FEEDER_MOTOR_ID, MotorType.kBrushed);

@@ -13,6 +13,7 @@ import frc.robot.commands.LaunchSequence;
 import frc.robot.subsystems.CANDriveSubsystem;
 import frc.robot.subsystems.CANFuelSubsystem;
 
+@SuppressWarnings("unused")
 public class RobotContainer{
     private final CANDriveSubsystem driveSubsytem=new CANDriveSubsystem();
     private final CANFuelSubsystem fuelSubsystem=new CANFuelSubsystem();
