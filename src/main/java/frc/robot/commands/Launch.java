@@ -26,6 +26,7 @@ public void execute(){
 
 @Override
 public void end(boolean interrupted){
+    fuelSubsystem.stop();
 }
 
 @Override 

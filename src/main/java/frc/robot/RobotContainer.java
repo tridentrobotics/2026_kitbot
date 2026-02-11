@@ -37,8 +37,8 @@ public class RobotContainer {
         operatorController.rightBumper().whileTrue(new LaunchSequence(fuelSubsystem));
         operatorController.a().whileTrue(new Eject(fuelSubsystem));
 
-        // ❌ Remove this for now — it can interfere with buttons
-        // fuelSubsystem.setDefaultCommand(fuelSubsystem.run(() -> fuelSubsystem.stop()));
+        
+        fuelSubsystem.setDefaultCommand(fuelSubsystem.run(() -> fuelSubsystem.stop()));
     }
 
     public Command getAutonomousCommand() {
