@@ -1,0 +1,793 @@
+[
+    {
+        "messageType": 2,
+        "timestamp": -0.0000152587890625,
+        "seqNumber": 201,
+        "line": "********** Robot program starting **********"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 0.025299072265625,
+        "seqNumber": 202,
+        "line": "NT: Listening on NT3 port 1735, NT4 port 5810"
+    },
+    {
+        "timestamp": 0.472900390625,
+        "seqNumber": 203,
+        "numOccur": 1,
+        "errorCode": 0,
+        "flags": 0,
+        "details": "StatusLogger: It is not recommended to log to RoboRIO internal storage. Plug in a flash drive.",
+        "location": "",
+        "callStack": "",
+        "messageType": 1
+    },
+    {
+        "messageType": 2,
+        "timestamp": 0.47454833984375,
+        "seqNumber": 204,
+        "line": "StatusLogger: Logging REVLOG to '/home/lvuser/logs/REV_TBD_7340c373690fdf76.revlog'"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 0.4762725830078125,
+        "seqNumber": 205,
+        "line": "StatusLogger: Renamed REVLOG from 'REV_TBD_7340c373690fdf76.revlog' to 'REV_20260210_222639.revlog' at '/home/lvuser/logs/REV_20260210_222639.revlog'"
+    },
+    {
+        "timestamp": 1.2588043212890625,
+        "seqNumber": 206,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 5, timed out while waiting for Period Status 0: HAL: CAN Receive has Timed Out",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 1.259246826171875,
+        "seqNumber": 207,
+        "numOccur": 1,
+        "errorCode": 5,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 5, Unable to retrieve SPARK firmware version. Please verify the deviceID field matches the configured CAN ID of the controller, and that the controller is connected to the CAN Bus. ",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 1.3694915771484375,
+        "seqNumber": 208,
+        "numOccur": 1,
+        "errorCode": 1,
+        "flags": 0,
+        "details": "CANSparkMax object created for CAN ID 5, which is not a SPARK MAX. Some functionalities may not work.",
+        "location": "com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)",
+        "callStack": "\tat com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)\n\tat frc.robot.subsystems.CANDriveSubsystem.<init>(CANDriveSubsystem.java:20)\n\tat frc.robot.RobotContainer.<init>(RobotContainer.java:18)\n\tat frc.robot.Robot.robotInit(Robot.java:16)\n\tat edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:126)\n\tat edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:436)\n\tat edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:527)\n\tat frc.robot.Main.main(Main.java:23)\n",
+        "messageType": 1
+    },
+    {
+        "messageType": 2,
+        "timestamp": 1.37042236328125,
+        "seqNumber": 209,
+        "line": "Warning at com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80): CANSparkMax object created for CAN ID 5, which is not a SPARK MAX. Some functionalities may not work."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 1.3716278076171875,
+        "seqNumber": 210,
+        "line": "\tat com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 1.3720703125,
+        "seqNumber": 211,
+        "line": "\tat frc.robot.subsystems.CANDriveSubsystem.<init>(CANDriveSubsystem.java:20)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 1.372406005859375,
+        "seqNumber": 212,
+        "line": "\tat frc.robot.RobotContainer.<init>(RobotContainer.java:18)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 1.3731231689453125,
+        "seqNumber": 213,
+        "line": "\tat frc.robot.Robot.robotInit(Robot.java:16)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 1.3734283447265625,
+        "seqNumber": 214,
+        "line": "\tat edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:126)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 1.373687744140625,
+        "seqNumber": 215,
+        "line": "\tat edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:436)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 1.3739471435546875,
+        "seqNumber": 216,
+        "line": "\tat edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:527)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 1.374176025390625,
+        "seqNumber": 217,
+        "line": "\tat frc.robot.Main.main(Main.java:23)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 1.3744659423828125,
+        "seqNumber": 218,
+        "line": ""
+    },
+    {
+        "timestamp": 2.20721435546875,
+        "seqNumber": 219,
+        "numOccur": 1,
+        "errorCode": 1,
+        "flags": 0,
+        "details": "CANSparkMax object created for CAN ID 6, which is not a SPARK MAX. Some functionalities may not work.",
+        "location": "com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)",
+        "callStack": "\tat com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)\n\tat frc.robot.subsystems.CANDriveSubsystem.<init>(CANDriveSubsystem.java:21)\n\tat frc.robot.RobotContainer.<init>(RobotContainer.java:18)\n\tat frc.robot.Robot.robotInit(Robot.java:16)\n\tat edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:126)\n\tat edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:436)\n\tat edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:527)\n\tat frc.robot.Main.main(Main.java:23)\n",
+        "messageType": 1
+    },
+    {
+        "messageType": 2,
+        "timestamp": 2.2080535888671875,
+        "seqNumber": 220,
+        "line": "Warning at com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80): CANSparkMax object created for CAN ID 6, which is not a SPARK MAX. Some functionalities may not work."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 2.2083587646484375,
+        "seqNumber": 221,
+        "line": "\tat com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 2.208648681640625,
+        "seqNumber": 222,
+        "line": "\tat frc.robot.subsystems.CANDriveSubsystem.<init>(CANDriveSubsystem.java:21)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 2.2089080810546875,
+        "seqNumber": 223,
+        "line": "\tat frc.robot.RobotContainer.<init>(RobotContainer.java:18)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 2.2092132568359375,
+        "seqNumber": 224,
+        "line": "\tat frc.robot.Robot.robotInit(Robot.java:16)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 2.209503173828125,
+        "seqNumber": 225,
+        "line": "\tat edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:126)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 2.2097625732421875,
+        "seqNumber": 226,
+        "line": "\tat edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:436)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 2.21002197265625,
+        "seqNumber": 227,
+        "line": "\tat edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:527)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 2.21026611328125,
+        "seqNumber": 228,
+        "line": "\tat frc.robot.Main.main(Main.java:23)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 2.210479736328125,
+        "seqNumber": 229,
+        "line": ""
+    },
+    {
+        "timestamp": 3.04241943359375,
+        "seqNumber": 230,
+        "numOccur": 1,
+        "errorCode": 1,
+        "flags": 0,
+        "details": "CANSparkMax object created for CAN ID 12, which is not a SPARK MAX. Some functionalities may not work.",
+        "location": "com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)",
+        "callStack": "\tat com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)\n\tat frc.robot.subsystems.CANDriveSubsystem.<init>(CANDriveSubsystem.java:22)\n\tat frc.robot.RobotContainer.<init>(RobotContainer.java:18)\n\tat frc.robot.Robot.robotInit(Robot.java:16)\n\tat edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:126)\n\tat edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:436)\n\tat edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:527)\n\tat frc.robot.Main.main(Main.java:23)\n",
+        "messageType": 1
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.0430450439453125,
+        "seqNumber": 231,
+        "line": "Warning at com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80): CANSparkMax object created for CAN ID 12, which is not a SPARK MAX. Some functionalities may not work."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.0433807373046875,
+        "seqNumber": 232,
+        "line": "\tat com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.043670654296875,
+        "seqNumber": 233,
+        "line": "\tat frc.robot.subsystems.CANDriveSubsystem.<init>(CANDriveSubsystem.java:22)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.043914794921875,
+        "seqNumber": 234,
+        "line": "\tat frc.robot.RobotContainer.<init>(RobotContainer.java:18)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.0441741943359375,
+        "seqNumber": 235,
+        "line": "\tat frc.robot.Robot.robotInit(Robot.java:16)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.0444793701171875,
+        "seqNumber": 236,
+        "line": "\tat edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:126)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.04473876953125,
+        "seqNumber": 237,
+        "line": "\tat edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:436)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.0449981689453125,
+        "seqNumber": 238,
+        "line": "\tat edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:527)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.04522705078125,
+        "seqNumber": 239,
+        "line": "\tat frc.robot.Main.main(Main.java:23)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.0454559326171875,
+        "seqNumber": 240,
+        "line": ""
+    },
+    {
+        "timestamp": 3.2745513916015625,
+        "seqNumber": 241,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 5, timed out while waiting for Period Status 0: HAL: CAN Receive has Timed Out",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 3.27496337890625,
+        "seqNumber": 242,
+        "numOccur": 1,
+        "errorCode": 5,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 6, Unable to retrieve SPARK firmware version. Please verify the deviceID field matches the configured CAN ID of the controller, and that the controller is connected to the CAN Bus. ",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 3.882110595703125,
+        "seqNumber": 243,
+        "numOccur": 1,
+        "errorCode": 1,
+        "flags": 0,
+        "details": "CANSparkMax object created for CAN ID 4, which is not a SPARK MAX. Some functionalities may not work.",
+        "location": "com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)",
+        "callStack": "\tat com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)\n\tat frc.robot.subsystems.CANDriveSubsystem.<init>(CANDriveSubsystem.java:23)\n\tat frc.robot.RobotContainer.<init>(RobotContainer.java:18)\n\tat frc.robot.Robot.robotInit(Robot.java:16)\n\tat edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:126)\n\tat edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:436)\n\tat edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:527)\n\tat frc.robot.Main.main(Main.java:23)\n",
+        "messageType": 1
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.8828582763671875,
+        "seqNumber": 244,
+        "line": "Warning at com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80): CANSparkMax object created for CAN ID 4, which is not a SPARK MAX. Some functionalities may not work."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.884185791015625,
+        "seqNumber": 245,
+        "line": "\tat com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.884552001953125,
+        "seqNumber": 246,
+        "line": "\tat frc.robot.subsystems.CANDriveSubsystem.<init>(CANDriveSubsystem.java:23)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.884857177734375,
+        "seqNumber": 247,
+        "line": "\tat frc.robot.RobotContainer.<init>(RobotContainer.java:18)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.8854522705078125,
+        "seqNumber": 248,
+        "line": "\tat frc.robot.Robot.robotInit(Robot.java:16)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.8863677978515625,
+        "seqNumber": 249,
+        "line": "\tat edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:126)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.88665771484375,
+        "seqNumber": 250,
+        "line": "\tat edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:436)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.88702392578125,
+        "seqNumber": 251,
+        "line": "\tat edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:527)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.890960693359375,
+        "seqNumber": 252,
+        "line": "\tat frc.robot.Main.main(Main.java:23)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 3.8912811279296875,
+        "seqNumber": 253,
+        "line": ""
+    },
+    {
+        "timestamp": 5.2910308837890625,
+        "seqNumber": 254,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 4, timed out while waiting for Getting SPARK Model failed. Unable to account for device-specific behavior differences.\n",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 7.3070831298828125,
+        "seqNumber": 255,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 6, timed out while waiting for Reset Safe Parameters: HAL: CAN Receive has Timed Out",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 9.322708129882812,
+        "seqNumber": 256,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 4, timed out while waiting for Reset Safe Parameters: HAL: CAN Receive has Timed Out",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 11.338760375976562,
+        "seqNumber": 257,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 5, timed out while waiting for Reset Safe Parameters: HAL: CAN Receive has Timed Out",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 13.354904174804688,
+        "seqNumber": 258,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 11, timed out while waiting for Period Status 0: HAL: CAN Receive has Timed Out",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 13.355316162109375,
+        "seqNumber": 259,
+        "numOccur": 1,
+        "errorCode": 5,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 11, Unable to retrieve SPARK firmware version. Please verify the deviceID field matches the configured CAN ID of the controller, and that the controller is connected to the CAN Bus. ",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 15.37066650390625,
+        "seqNumber": 260,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 11, timed out while waiting for Getting SPARK Model failed. Unable to account for device-specific behavior differences.\n",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 17.3865966796875,
+        "seqNumber": 261,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 11, timed out while waiting for Get parameter ID 127, frameID 33901504: HAL: CAN Receive has Timed Out",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 19.401565551757812,
+        "seqNumber": 262,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 11, timed out while waiting for Period Status 0: HAL: CAN Receive has Timed Out",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 20.626571655273438,
+        "seqNumber": 263,
+        "numOccur": 1,
+        "errorCode": 1,
+        "flags": 0,
+        "details": "CANSparkMax object created for CAN ID 11, which is not a SPARK MAX. Some functionalities may not work.",
+        "location": "com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)",
+        "callStack": "\tat com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)\n\tat frc.robot.subsystems.CANFuelSubsystem.<init>(CANFuelSubsystem.java:17)\n\tat frc.robot.RobotContainer.<init>(RobotContainer.java:19)\n\tat frc.robot.Robot.robotInit(Robot.java:16)\n\tat edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:126)\n\tat edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:436)\n\tat edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:527)\n\tat frc.robot.Main.main(Main.java:23)\n",
+        "messageType": 1
+    },
+    {
+        "messageType": 2,
+        "timestamp": 20.627456665039062,
+        "seqNumber": 264,
+        "line": "Warning at com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80): CANSparkMax object created for CAN ID 11, which is not a SPARK MAX. Some functionalities may not work."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 20.627899169921875,
+        "seqNumber": 265,
+        "line": "\tat com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 20.628250122070312,
+        "seqNumber": 266,
+        "line": "\tat frc.robot.subsystems.CANFuelSubsystem.<init>(CANFuelSubsystem.java:17)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 20.6285400390625,
+        "seqNumber": 267,
+        "line": "\tat frc.robot.RobotContainer.<init>(RobotContainer.java:19)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 20.6287841796875,
+        "seqNumber": 268,
+        "line": "\tat frc.robot.Robot.robotInit(Robot.java:16)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 20.629043579101562,
+        "seqNumber": 269,
+        "line": "\tat edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:126)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 20.629302978515625,
+        "seqNumber": 270,
+        "line": "\tat edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:436)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 20.629547119140625,
+        "seqNumber": 271,
+        "line": "\tat edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:527)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 20.629867553710938,
+        "seqNumber": 272,
+        "line": "\tat frc.robot.Main.main(Main.java:23)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 20.630081176757812,
+        "seqNumber": 273,
+        "line": ""
+    },
+    {
+        "timestamp": 21.417037963867188,
+        "seqNumber": 274,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 11, timed out while waiting for Getting SPARK Model failed. Unable to account for device-specific behavior differences.\n",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 23.432174682617188,
+        "seqNumber": 275,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 1, timed out while waiting for Period Status 0: HAL: CAN Receive has Timed Out",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 23.432998657226562,
+        "seqNumber": 276,
+        "numOccur": 1,
+        "errorCode": 5,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 1, Unable to retrieve SPARK firmware version. Please verify the deviceID field matches the configured CAN ID of the controller, and that the controller is connected to the CAN Bus. ",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 25.447677612304688,
+        "seqNumber": 277,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 1, timed out while waiting for Getting SPARK Model failed. Unable to account for device-specific behavior differences.\n",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 27.462646484375,
+        "seqNumber": 278,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 1, timed out while waiting for Get parameter ID 127, frameID 33901504: HAL: CAN Receive has Timed Out",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 29.478164672851562,
+        "seqNumber": 279,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 1, timed out while waiting for Period Status 0: HAL: CAN Receive has Timed Out",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 30.572296142578125,
+        "seqNumber": 280,
+        "numOccur": 1,
+        "errorCode": 1,
+        "flags": 0,
+        "details": "CANSparkMax object created for CAN ID 1, which is not a SPARK MAX. Some functionalities may not work.",
+        "location": "com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)",
+        "callStack": "\tat com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)\n\tat frc.robot.subsystems.CANFuelSubsystem.<init>(CANFuelSubsystem.java:18)\n\tat frc.robot.RobotContainer.<init>(RobotContainer.java:19)\n\tat frc.robot.Robot.robotInit(Robot.java:16)\n\tat edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:126)\n\tat edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:436)\n\tat edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:527)\n\tat frc.robot.Main.main(Main.java:23)\n",
+        "messageType": 1
+    },
+    {
+        "messageType": 2,
+        "timestamp": 30.5736083984375,
+        "seqNumber": 281,
+        "line": "Warning at com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80): CANSparkMax object created for CAN ID 1, which is not a SPARK MAX. Some functionalities may not work."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 30.5743408203125,
+        "seqNumber": 282,
+        "line": "\tat com.revrobotics.spark.SparkMax.<init>(SparkMax.java:80)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 30.5770263671875,
+        "seqNumber": 283,
+        "line": "\tat frc.robot.subsystems.CANFuelSubsystem.<init>(CANFuelSubsystem.java:18)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 30.57733154296875,
+        "seqNumber": 284,
+        "line": "\tat frc.robot.RobotContainer.<init>(RobotContainer.java:19)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 30.57757568359375,
+        "seqNumber": 285,
+        "line": "\tat frc.robot.Robot.robotInit(Robot.java:16)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 30.577835083007812,
+        "seqNumber": 286,
+        "line": "\tat edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:126)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 30.578399658203125,
+        "seqNumber": 287,
+        "line": "\tat edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:436)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 30.578689575195312,
+        "seqNumber": 288,
+        "line": "\tat edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:527)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 30.57891845703125,
+        "seqNumber": 289,
+        "line": "\tat frc.robot.Main.main(Main.java:23)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 30.579132080078125,
+        "seqNumber": 290,
+        "line": ""
+    },
+    {
+        "timestamp": 31.493637084960938,
+        "seqNumber": 291,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 1, timed out while waiting for Getting SPARK Model failed. Unable to account for device-specific behavior differences.\n",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "timestamp": 33.509521484375,
+        "seqNumber": 292,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 1, timed out while waiting for Reset Safe Parameters: HAL: CAN Receive has Timed Out",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    },
+    {
+        "messageType": 2,
+        "timestamp": 34.12408447265625,
+        "seqNumber": 293,
+        "line": "********** Robot program startup complete **********"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 34.12925720214844,
+        "seqNumber": 294,
+        "line": "Default disabledPeriodic() method... Override me!"
+    },
+    {
+        "timestamp": 34.18623352050781,
+        "seqNumber": 295,
+        "numOccur": 1,
+        "errorCode": 1,
+        "flags": 0,
+        "details": "Loop time of 0.02s overrun\n",
+        "location": "edu.wpi.first.wpilibj.IterativeRobotBase.printLoopOverrunMessage(IterativeRobotBase.java:436)",
+        "callStack": "",
+        "messageType": 1
+    },
+    {
+        "messageType": 2,
+        "timestamp": 34.187255859375,
+        "seqNumber": 296,
+        "line": "Warning at edu.wpi.first.wpilibj.IterativeRobotBase.printLoopOverrunMessage(IterativeRobotBase.java:436): Loop time of 0.02s overrun"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 34.189056396484375,
+        "seqNumber": 297,
+        "line": ""
+    },
+    {
+        "timestamp": 34.44435119628906,
+        "seqNumber": 298,
+        "numOccur": 1,
+        "errorCode": 1,
+        "flags": 0,
+        "details": "\tSmartDashboard.updateValues(): 0.001669s\n\tdisabledInit(): 0.002783s\n\trobotPeriodic(): 0.017122s\n\tLiveWindow.updateValues(): 0.000093s\n\tShuffleboard.update(): 0.000093s\n\tdisabledPeriodic(): 0.001205s\n",
+        "location": "edu.wpi.first.wpilibj.Tracer.lambda$printEpochs$0(Tracer.java:62)",
+        "callStack": "",
+        "messageType": 1
+    },
+    {
+        "messageType": 2,
+        "timestamp": 34.44493103027344,
+        "seqNumber": 299,
+        "line": "Warning at edu.wpi.first.wpilibj.Tracer.lambda$printEpochs$0(Tracer.java:62): \tSmartDashboard.updateValues(): 0.001669s"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 34.446868896484375,
+        "seqNumber": 300,
+        "line": "\tdisabledInit(): 0.002783s"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 34.4471435546875,
+        "seqNumber": 301,
+        "line": "\trobotPeriodic(): 0.017122s"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 34.4473876953125,
+        "seqNumber": 302,
+        "line": "\tLiveWindow.updateValues(): 0.000093s"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 34.4476318359375,
+        "seqNumber": 303,
+        "line": "\tShuffleboard.update(): 0.000093s"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 34.44786071777344,
+        "seqNumber": 304,
+        "line": "\tdisabledPeriodic(): 0.001205s"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 34.44805908203125,
+        "seqNumber": 305,
+        "line": ""
+    },
+    {
+        "timestamp": 35.52827453613281,
+        "seqNumber": 306,
+        "numOccur": 1,
+        "errorCode": 2,
+        "flags": 1,
+        "details": "[Spark Max] IDs: 11, timed out while waiting for Reset Safe Parameters: HAL: CAN Receive has Timed Out",
+        "location": "",
+        "callStack": "",
+        "messageType": 0
+    }
+]

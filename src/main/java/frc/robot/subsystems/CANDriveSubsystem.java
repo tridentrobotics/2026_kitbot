@@ -1,52 +1,42 @@
 package frc.robot.subsystems;
 
-import com.revrobotics.spark.SparkBase.PersistMode;
-import com.revrobotics.spark.SparkBase.ResetMode;
-import com.revrobotics.spark.SparkLowLevel.MotorType;
-import com.revrobotics.spark.SparkMax;
-import com.revrobotics.spark.config.SparkMaxConfig;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import static frc.robot.Constants.DriveConstants.*;
 
 public class CANDriveSubsystem extends SubsystemBase {
-    private final SparkMax leftLeader;
-    private final SparkMax leftFollower;
-    private final SparkMax rightLeader;
-    private final SparkMax rightFollower;
-    private final DifferentialDrive drive;
-    @SuppressWarnings("removal")
-    public CANDriveSubsystem(){
-        leftLeader = new SparkMax(LEFT_LEADER_ID, MotorType.kBrushed);
-        leftFollower = new SparkMax(LEFT_FOLLOWER_ID, MotorType.kBrushed);
-        rightLeader = new SparkMax(RIGHT_LEADER_ID, MotorType.kBrushed);
-        rightFollower = new SparkMax(RIGHT_FOLLOWER_ID, MotorType.kBrushed);
-        
-        drive = new DifferentialDrive(leftLeader, rightLeader);
-        
-        leftLeader.setCANTimeout(250);
-        leftFollower.setCANTimeout(250);
-        rightLeader.setCANTimeout(250);
-        rightFollower.setCANTimeout(250);
 
-        SparkMaxConfig config = new SparkMaxConfig();
-        config.voltageCompensation(12);
-        config.smartCurrentLimit(DRIVE_MOTOR_CURRENT_LIMIT);
-        config.follow(leftLeader);
-        leftFollower.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
-        config.follow(rightLeader);
-        rightFollower.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    private final TalonSRX leftLeader;
+    private final TalonSRX leftFollower;
+    private final TalonSRX rightLeader;
+    private final TalonSRX rightFollower;
 
-        config.disableFollowerMode();
-        rightLeader.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
-        config.inverted(true);
-        leftLeader.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    public CANDriveSubsystem() {
+        leftLeader = new TalonSRX(LEFT_LEADER_ID);
+        leftFollower = new TalonSRX(LEFT_FOLLOWER_ID);
+        rightLeader = new TalonSRX(RIGHT_LEADER_ID);
+        rightFollower = new TalonSRX(RIGHT_FOLLOWER_ID);
+
+        // Invert right side
+        rightLeader.setInverted(true);
+        rightFollower.setInverted(true);
+
+        // Followers follow their leaders
+        leftFollower.follow(leftLeader);
+        rightFollower.follow(rightLeader);
+
+        // Optional: configure current limits
+        leftLeader.configSupplyCurrentLimit(new com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration(true, DRIVE_MOTOR_CURRENT_LIMIT, DRIVE_MOTOR_CURRENT_LIMIT, 1.0));
+        rightLeader.configSupplyCurrentLimit(new com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration(true, DRIVE_MOTOR_CURRENT_LIMIT, DRIVE_MOTOR_CURRENT_LIMIT, 1.0));
+
+        System.out.println("CANDriveSubsystem initialized (TalonFX)");
     }
-    
-    @Override
-    public void periodic() {
+
+    /** Tank drive: left stick controls left, right stick controls right */
+    public void tankDrive(double leftSpeed, double rightSpeed) {
+        leftLeader.set(ControlMode.PercentOutput, leftSpeed);
+        rightLeader.set(ControlMode.PercentOutput, rightSpeed);
+        // followers already follow
     }
-    public void driveArcade(double xSpeed, double zRotation) {
-        drive.arcadeDrive(xSpeed, zRotation);
-    } 
 }

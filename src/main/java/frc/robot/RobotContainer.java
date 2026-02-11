@@ -3,7 +3,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
 import static frc.robot.Constants.OperatorConstants.*;
 import frc.robot.commands.Drive;
 import frc.robot.commands.Eject;
@@ -13,30 +12,36 @@ import frc.robot.commands.LaunchSequence;
 import frc.robot.subsystems.CANDriveSubsystem;
 import frc.robot.subsystems.CANFuelSubsystem;
 
-@SuppressWarnings("unused")
-public class RobotContainer{
-    private final CANDriveSubsystem driveSubsytem=new CANDriveSubsystem();
-    private final CANFuelSubsystem fuelSubsystem=new CANFuelSubsystem();
-    private final CommandXboxController driverController=new CommandXboxController(DRIVER_CONTROLLER_PORT);
-    private final CommandXboxController operatorController=new CommandXboxController(OPERATOR_CONTROLLER_PORT);
-    private final SendableChooser<Command> autoChooser=new SendableChooser<>();
 
-    public RobotContainer(){
+public class RobotContainer {
+    private final CANDriveSubsystem driveSubsystem = new CANDriveSubsystem();
+    private final CANFuelSubsystem fuelSubsystem = new CANFuelSubsystem();
+    private final CommandXboxController driverController = new CommandXboxController(DRIVER_CONTROLLER_PORT);
+    private final CommandXboxController operatorController = new CommandXboxController(OPERATOR_CONTROLLER_PORT);
+    private final SendableChooser<Command> autoChooser = new SendableChooser<>();
+
+    public RobotContainer() {
+
+        // 🔹 LOG ADDED HERE
+        System.out.println("RobotContainer constructed");
+
+        driveSubsystem.setDefaultCommand(new Drive(driveSubsystem, driverController));
+
         configureBindings();
-        autoChooser.setDefaultOption("Autonoumous", new ExampleAuto(driveSubsytem, fuelSubsystem));
+
+        autoChooser.setDefaultOption("Autonomous", new ExampleAuto(driveSubsystem, fuelSubsystem));
     }
-    
-    private void configureBindings(){
+
+    private void configureBindings() {
         operatorController.leftBumper().whileTrue(new Intake(fuelSubsystem));
         operatorController.rightBumper().whileTrue(new LaunchSequence(fuelSubsystem));
         operatorController.a().whileTrue(new Eject(fuelSubsystem));
-        
-        driveSubsytem.setDefaultCommand(new Drive(driveSubsytem, driverController));
-        fuelSubsystem.setDefaultCommand(fuelSubsystem.run(()-> fuelSubsystem.stop()));
 
+        // ❌ Remove this for now — it can interfere with buttons
+        // fuelSubsystem.setDefaultCommand(fuelSubsystem.run(() -> fuelSubsystem.stop()));
     }
-   public Command getAutonomousCommand(){
+
+    public Command getAutonomousCommand() {
         return autoChooser.getSelected();
     }
-    
-}   
+}

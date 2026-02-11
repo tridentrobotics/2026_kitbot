@@ -19,11 +19,11 @@ public class AutoDrive extends Command{
     }
     @Override
     public void execute(){
-        driveSubsystem.driveArcade(xSpeed, zRotation);
+        driveSubsystem.tankDrive(xSpeed, zRotation);
     }
     @Override
     public void end(boolean interupted){    
-    driveSubsystem.driveArcade(0,0);
+    driveSubsystem.tankDrive(0,0);
     }
     @Override
     public boolean isFinished()

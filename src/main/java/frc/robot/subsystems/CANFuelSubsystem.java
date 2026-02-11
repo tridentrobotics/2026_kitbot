@@ -1,54 +1,39 @@
 package frc.robot.subsystems;
 
-import com.revrobotics.spark.SparkBase.PersistMode;
-import com.revrobotics.spark.SparkBase.ResetMode;
-import com.revrobotics.spark.SparkLowLevel.MotorType;
-import com.revrobotics.spark.SparkMax;
-import com.revrobotics.spark.config.SparkMaxConfig;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import static frc.robot.Constants.FuelConstants.*;
 
 public class CANFuelSubsystem extends SubsystemBase {
-    private final SparkMax feederRoller;
-    private final SparkMax intakeLauncherRoller;
-    @SuppressWarnings("removal")
+
+    private final TalonSRX feederRoller;
+    private final TalonSRX intakeLauncherRoller;
+
     public CANFuelSubsystem() {
-        intakeLauncherRoller = new SparkMax(INTAKE_LAUNCHER_MOTOR_ID, MotorType.kBrushed);
-        feederRoller = new SparkMax(FEEDER_MOTOR_ID, MotorType.kBrushed);
+        feederRoller = new TalonSRX(FEEDER_MOTOR_ID);
+        intakeLauncherRoller = new TalonSRX(INTAKE_LAUNCHER_MOTOR_ID);
 
-        SparkMaxConfig feederConfig = new SparkMaxConfig();
-        feederConfig.smartCurrentLimit(FEEDER_MOTOR_CURRENT_LIMIT);
-        feederRoller.configure(feederConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+        // Optional inversion
+        intakeLauncherRoller.setInverted(true);
 
+        // Optional: configure current limits
+        feederRoller.configSupplyCurrentLimit(new com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration(true, FEEDER_MOTOR_CURRENT_LIMIT, FEEDER_MOTOR_CURRENT_LIMIT, 1.0));
+        intakeLauncherRoller.configSupplyCurrentLimit(new com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration(true, LAUNCHER_MOTOR_CURRENT_LIMIT, LAUNCHER_MOTOR_CURRENT_LIMIT, 1.0));
 
-        SparkMaxConfig launcherConfig = new SparkMaxConfig();
-        launcherConfig.inverted(true);
-        launcherConfig.smartCurrentLimit(LAUNCHER_MOTOR_CURRENT_LIMIT);
-
-        intakeLauncherRoller.configure(launcherConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
-        SmartDashboard.putNumber("Intaking Feeder Roller Value", INTAKING_FEEDER_VOLTAGE);
-        SmartDashboard.putNumber("Intaking Intake Roller Value", INTAKING_INTAKE_VOLTAGE);
-        SmartDashboard.putNumber("Launching Feeder Roller Value", LAUNCHING_FEEDER_VOLTAGE);
-        SmartDashboard.putNumber("Launching Launcher Roller Value", LAUNCHING_LAUNCHER_VOLTAGE);
-        SmartDashboard.putNumber("Spin-Up Feeder Roller Value", SPIN_UP_FEEDER_VOLTAGE);
-
+        System.out.println("CANFuelSubsystem initialized (TalonSRX)");
     }
 
-    public void setIntakeLauncherRoller(double voltage) {
-        intakeLauncherRoller.setVoltage(voltage);
+    public void setFeederRoller(double percentOutput) {
+        feederRoller.set(ControlMode.PercentOutput, percentOutput / 12.0); // convert volts to percent
     }
-    public void setFeederRoller(double voltage) {
-        feederRoller.setVoltage(voltage);
+
+    public void setIntakeLauncherRoller(double percentOutput) {
+        intakeLauncherRoller.set(ControlMode.PercentOutput, percentOutput / 12.0);
     }
+
     public void stop() {
-        feederRoller.set(0);
-        intakeLauncherRoller.set(0);
+        feederRoller.set(ControlMode.PercentOutput, 0);
+        intakeLauncherRoller.set(ControlMode.PercentOutput, 0);
     }
-    @Override
-    public void periodic() {
-    }
-
-
 }
-

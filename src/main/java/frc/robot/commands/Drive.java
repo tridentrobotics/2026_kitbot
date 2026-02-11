@@ -16,16 +16,26 @@ public class Drive extends Command{
     controller=driverController;
     }
         @Override
-        public void initialize(){
-        }
-        @Override
-        public void execute(){
-            driveSubsystem.driveArcade(-controller.getLeftY() * DRIVE_SCALING, -controller.getRightX() * ROTATION_SCALING);
-        }
+public void initialize() {
+    System.out.println("Drive command initialized");
+}
+
+@Override
+public void execute() {
+    double leftSpeed = -controller.getLeftY() * DRIVE_SCALING;
+    double rightSpeed = -controller.getRightY() * DRIVE_SCALING;
+
+    driveSubsystem.tankDrive(leftSpeed, rightSpeed);
+
+    System.out.println("Tank Drive: Left=" + leftSpeed + " Right=" + rightSpeed);
+}
+
+
         @Override
         public void end(boolean interupted)
         {
-            driveSubsystem.driveArcade(0,0);
+            System.out.println("Drive command ended. Interrupted=");
+            driveSubsystem.tankDrive(0, 0);
         }
         @Override
         public boolean isFinished(){
