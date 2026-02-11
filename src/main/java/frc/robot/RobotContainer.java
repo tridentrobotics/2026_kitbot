@@ -33,9 +33,9 @@ public class RobotContainer {
     }
 
     private void configureBindings() {
-        operatorController.leftBumper().whileTrue(new Intake(fuelSubsystem));
-        operatorController.rightBumper().whileTrue(new LaunchSequence(fuelSubsystem));
-        operatorController.a().whileTrue(new Eject(fuelSubsystem));
+        operatorController.leftTrigger().whileTrue(new Intake(fuelSubsystem));
+        operatorController.rightTrigger().whileTrue(new LaunchSequence(fuelSubsystem));
+        operatorController.b().whileTrue(new Eject(fuelSubsystem));
 
         
         fuelSubsystem.setDefaultCommand(fuelSubsystem.run(() -> fuelSubsystem.stop()));

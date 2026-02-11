@@ -30,7 +30,7 @@ public class CANDriveSubsystem extends SubsystemBase {
         leftLeader.configSupplyCurrentLimit(new com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration(true, DRIVE_MOTOR_CURRENT_LIMIT, DRIVE_MOTOR_CURRENT_LIMIT, 1.0));
         rightLeader.configSupplyCurrentLimit(new com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration(true, DRIVE_MOTOR_CURRENT_LIMIT, DRIVE_MOTOR_CURRENT_LIMIT, 1.0));
 
-        System.out.println("CANDriveSubsystem initialized (TalonFX)");
+        System.out.println("CANDriveSubsystem initialized (TalonSRX)");
     }
 
     /** Tank drive: left stick controls left, right stick controls right */
