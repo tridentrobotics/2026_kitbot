@@ -1,4 +1,7 @@
 package frc.robot;
+
+
+
 public final class Constants {
     public static final class DriveConstants{
         public static final int LEFT_LEADER_ID = 5;
@@ -16,9 +19,11 @@ public final class Constants {
         public static final int FEEDER_MOTOR_CURRENT_LIMIT=60;
         public static final int LAUNCHER_MOTOR_CURRENT_LIMIT=60;
         public static final double INTAKING_FEEDER_VOLTAGE = -12;
-        public static final double INTAKING_INTAKE_VOLTAGE = -10;
-        public static final double LAUNCHING_FEEDER_VOLTAGE = 1;
-        public static final double LAUNCHING_LAUNCHER_VOLTAGE = 12;
+        public static final double INTAKING_INTAKE_VOLTAGE = -6;
+        public static final double LAUNCHING_FEEDER_VOLTAGE = 11;
+        public static final double LAUNCHING_LAUNCHER_VOLTAGE = -11;
+        public static final double EJECTING_FEEDER_VOLTAGE = -11;
+        public static final double EJECTING_LAUNCHER_VOLTAGE = 11;
         public static final double SPIN_UP_FEEDER_VOLTAGE = -6;
         public static final double SPIN_UP_SECONDS = 1;
     }
