@@ -3,28 +3,31 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.CANFuelSubsystem;
 import static frc.robot.Constants.FuelConstants.*;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import static frc.robot.Constants.OperatorConstants.*;
 
 public class Intake extends Command {
-    private final CommandXboxController driverController = new CommandXboxController(DRIVER_CONTROLLER_PORT);
     CANFuelSubsystem fuelSubsystem;
+    double triggerAxisPct;
 
-    public Intake(CANFuelSubsystem fuelSystem) {
+    public Intake(CANFuelSubsystem fuelSystem, double triggerAxisPct) {
         addRequirements(fuelSystem);
         this.fuelSubsystem = fuelSystem;
+        this.triggerAxisPct = triggerAxisPct;
     }
 
     @Override
     public void initialize() {
-        fuelSubsystem
-                .setIntakeLauncherRoller(INTAKING_INTAKE_VOLTAGE*(driverController.getLeftTriggerAxis()));
-        fuelSubsystem
-                .setFeederRoller(INTAKING_FEEDER_VOLTAGE*(driverController.getLeftTriggerAxis()));
+        // No fixed voltage; speed is set in execute
     }
 
     @Override
     public void execute() {
+        double intakeVoltage = triggerAxisPct * INTAKING_INTAKE_VOLTAGE;
+        double feederVoltage = triggerAxisPct * INTAKING_FEEDER_VOLTAGE;
+
+        System.out.println("Intake voltage: " + intakeVoltage + ", Feeder voltage: " + feederVoltage);
+
+        fuelSubsystem.setIntakeLauncherRoller(intakeVoltage);
+        fuelSubsystem.setFeederRoller(feederVoltage);
     }
 
     @Override
@@ -34,6 +37,7 @@ public class Intake extends Command {
 
     @Override
     public void end(boolean interrupted) {
+        System.out.println("Intake command ended. Stopping motors.");
         fuelSubsystem.stop();
     }
 }
