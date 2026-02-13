@@ -16,8 +16,7 @@ import frc.robot.subsystems.CANFuelSubsystem;
 public class RobotContainer {
     private final CANDriveSubsystem driveSubsystem = new CANDriveSubsystem();
     private final CANFuelSubsystem fuelSubsystem = new CANFuelSubsystem();
-    private final CommandXboxController driverController = new CommandXboxController(DRIVER_CONTROLLER_PORT);
-    private final CommandXboxController operatorController = new CommandXboxController(OPERATOR_CONTROLLER_PORT);
+    public final CommandXboxController operatorController = new CommandXboxController(OPERATOR_CONTROLLER_PORT);
     private final SendableChooser<Command> autoChooser = new SendableChooser<>();
 
     public RobotContainer() {
@@ -25,7 +24,7 @@ public class RobotContainer {
         // 🔹 LOG ADDED HERE
         System.out.println("RobotContainer constructed");
 
-        driveSubsystem.setDefaultCommand(new Drive(driveSubsystem, driverController));
+        driveSubsystem.setDefaultCommand(new Drive(driveSubsystem, operatorController));
 
         configureBindings();
 
@@ -33,8 +32,8 @@ public class RobotContainer {
     }
 
     private void configureBindings() {
-        operatorController.leftTrigger().whileTrue(new Intake(fuelSubsystem, operatorController.getLeftTriggerAxis()));
-        operatorController.rightBumper().whileTrue(new LaunchSequence(fuelSubsystem));
+        operatorController.leftTrigger(0).whileTrue(new Intake(fuelSubsystem));
+        operatorController.rightTrigger(0).whileTrue(new LaunchSequence(fuelSubsystem));
         operatorController.b().whileTrue(new Eject(fuelSubsystem));
 
 

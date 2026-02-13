@@ -1,12 +1,14 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.CANFuelSubsystem;
 import static frc.robot.Constants.FuelConstants.*;
+import static frc.robot.Constants.OperatorConstants.OPERATOR_CONTROLLER_PORT;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
 public class Eject extends Command {
     CANFuelSubsystem fuelSubsystem;
+    public final CommandXboxController operatorController = new CommandXboxController(OPERATOR_CONTROLLER_PORT);
     public Eject(CANFuelSubsystem fuelSystem){
         addRequirements(fuelSystem);
         this.fuelSubsystem = fuelSystem;
@@ -14,17 +16,22 @@ public class Eject extends Command {
     }
     @Override
     public void initialize(){
-        fuelSubsystem.setIntakeLauncherRoller(SmartDashboard.getNumber("Intaking intake roller value", EJECTING_LAUNCHER_VOLTAGE));
-        fuelSubsystem.setFeederRoller(SmartDashboard.getNumber("Intaking feeder roller value", EJECTING_FEEDER_VOLTAGE));
         
     }
     @Override
     public void execute(){
+        double intakeVoltage = operatorController.getLeftTriggerAxis() * LAUNCHING_LAUNCHER_VOLTAGE;
+        double feederVoltage = operatorController.getLeftTriggerAxis() * LAUNCHING_FEEDER_VOLTAGE;
+
+        System.out.println("Intake voltage: " + intakeVoltage + ", Feeder voltage: " + feederVoltage);
+
+        fuelSubsystem.setIntakeLauncherRoller(intakeVoltage);
+        fuelSubsystem.setFeederRoller(feederVoltage);
     }
     @Override
     public void end(boolean interrupted){
-        fuelSubsystem.setIntakeLauncherRoller(0);
-        fuelSubsystem.setFeederRoller(0);
+        System.out.println("Intake command ended. Stopping motors.");
+        fuelSubsystem.stop();
         
     }
     @Override

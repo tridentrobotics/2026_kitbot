@@ -18,8 +18,8 @@ public final class Constants {
         
         public static final int FEEDER_MOTOR_CURRENT_LIMIT=60;
         public static final int LAUNCHER_MOTOR_CURRENT_LIMIT=60;
-        public static final double INTAKING_FEEDER_VOLTAGE = -12;
-        public static final double INTAKING_INTAKE_VOLTAGE = -6;
+        public static final double INTAKING_FEEDER_VOLTAGE = 12;
+        public static final double INTAKING_INTAKE_VOLTAGE = -12;
         public static final double LAUNCHING_FEEDER_VOLTAGE = 11;
         public static final double LAUNCHING_LAUNCHER_VOLTAGE = -11;
         public static final double EJECTING_FEEDER_VOLTAGE = -11;
@@ -28,10 +28,11 @@ public final class Constants {
         public static final double SPIN_UP_SECONDS = 1;
     }
     public static final class OperatorConstants{
-        public static final int DRIVER_CONTROLLER_PORT = 0;
         public static final int OPERATOR_CONTROLLER_PORT = 0;
-        public static final double DRIVE_SCALING = 0.7;
-        public static final double ROTATION_SCALING = 0.8;
+        public static final double DRIVE_SCALING = 0.5;
+        public static final double ROTATION_SCALING = 0.5;
+        public static final double TURN_THRESHOLD = 0.15;
+        public static double RIGHT_OFFSET = 0.1;
         }
 
     

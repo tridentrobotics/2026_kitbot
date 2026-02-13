@@ -6,28 +6,38 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.subsystems.CANDriveSubsystem;
 
+
 public class Drive extends Command{
     CANDriveSubsystem driveSubsystem;
-    CommandXboxController controller;
+    public final CommandXboxController operatorController = new CommandXboxController(OPERATOR_CONTROLLER_PORT);
+    double right_offset = RIGHT_OFFSET;
 
     public Drive(CANDriveSubsystem driveSystem, CommandXboxController driverController){
     addRequirements(driveSystem);
     driveSubsystem=driveSystem;
-    controller=driverController;
+    
     }
-        @Override
-public void initialize() {
-    System.out.println("Drive command initialized");
-}
+    @Override
+    public void initialize() {
+        System.out.println("Drive command initialized");
+    }
 
 @Override
 public void execute() {
-    double leftSpeed = -controller.getLeftY() * DRIVE_SCALING;
-    double rightSpeed = -controller.getRightY() * DRIVE_SCALING;
+        double leftTurnSpeed = operatorController.getRightX() * ROTATION_SCALING;
+        double rightTurnSpeed = -operatorController.getRightX() * ROTATION_SCALING;
+        
+        double leftSpeed = (-operatorController.getLeftY() * DRIVE_SCALING)/*-(1-leftTurnSpeed)*/;
+        double rightSpeed = (-operatorController.getLeftY() * DRIVE_SCALING)/*-(1-rightTurnSpeed)*/;
+        
+        driveSubsystem.tankDrive(leftSpeed, rightSpeed);
 
-    driveSubsystem.tankDrive(leftSpeed, rightSpeed);
+        System.out.println("Tank Drive: Left=" + leftSpeed + " Right=" + rightSpeed);
 
-    System.out.println("Tank Drive: Left=" + leftSpeed + " Right=" + rightSpeed);
+
+
+    
+
 }
 
 
