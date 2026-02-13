@@ -27,8 +27,8 @@ public void execute() {
         double leftTurnSpeed = operatorController.getRightX() * ROTATION_SCALING;
         double rightTurnSpeed = -operatorController.getRightX() * ROTATION_SCALING;
         
-        double leftSpeed = (-operatorController.getLeftY() * DRIVE_SCALING)/*-(1-leftTurnSpeed)*/;
-        double rightSpeed = (-operatorController.getLeftY() * DRIVE_SCALING)/*-(1-rightTurnSpeed)*/;
+        double leftSpeed = (-operatorController.getLeftY() * DRIVE_SCALING)-leftTurnSpeed;
+        double rightSpeed = (-operatorController.getLeftY() * DRIVE_SCALING)-rightTurnSpeed;
         
         driveSubsystem.tankDrive(leftSpeed, rightSpeed);
 
