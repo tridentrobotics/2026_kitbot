@@ -20,15 +20,16 @@ public class Drive extends Command{
     @Override
     public void initialize() {
         System.out.println("Drive command initialized");
+        
     }
 
 @Override
 public void execute() {
-        double leftTurnSpeed = operatorController.getRightX() * ROTATION_SCALING;
-        double rightTurnSpeed = -operatorController.getRightX() * ROTATION_SCALING;
+        double leftTurnSpeed = -operatorController.getRightX() * ROTATION_SCALING;
+        double rightTurnSpeed = operatorController.getRightX() * ROTATION_SCALING;
         
-        double leftSpeed = (-operatorController.getLeftY() * DRIVE_SCALING)-leftTurnSpeed;
-        double rightSpeed = (-operatorController.getLeftY() * DRIVE_SCALING)-rightTurnSpeed;
+        double leftSpeed = (-(operatorController.getLeftY()) * DRIVE_SCALING)-leftTurnSpeed;
+        double rightSpeed = (-(operatorController.getLeftY()) * DRIVE_SCALING*.65)-rightTurnSpeed;
         
         driveSubsystem.tankDrive(leftSpeed, rightSpeed);
 

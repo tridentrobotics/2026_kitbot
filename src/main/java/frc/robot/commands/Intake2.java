@@ -7,10 +7,10 @@ import static frc.robot.Constants.OperatorConstants.OPERATOR_CONTROLLER_PORT;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
 
-public class Intake extends Command {
+public class Intake2 extends Command {
     CANFuelSubsystem fuelSubsystem;
     public final CommandXboxController operatorController = new CommandXboxController(OPERATOR_CONTROLLER_PORT);
-    public Intake(CANFuelSubsystem fuelSystem) {
+    public Intake2(CANFuelSubsystem fuelSystem) {
         
         addRequirements(fuelSystem);
         this.fuelSubsystem = fuelSystem;
@@ -28,8 +28,8 @@ public class Intake extends Command {
 
         System.out.println("Intake voltage: " + intakeVoltage + ", Feeder voltage: " + feederVoltage);
 
-        fuelSubsystem.setIntakeLauncherRoller(intakeVoltage*0.8);
-        fuelSubsystem.setFeederRoller(feederVoltage*0.75);
+        fuelSubsystem.setIntakeLauncherRoller(intakeVoltage*.5);
+        fuelSubsystem.setFeederRoller(feederVoltage*.5);
     }
 
     @Override

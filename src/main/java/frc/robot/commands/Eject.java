@@ -16,12 +16,11 @@ public class Eject extends Command {
     }
     @Override
     public void initialize(){
-        
     }
     @Override
     public void execute(){
-        double intakeVoltage = operatorController.getLeftTriggerAxis() * LAUNCHING_LAUNCHER_VOLTAGE;
-        double feederVoltage = operatorController.getLeftTriggerAxis() * LAUNCHING_FEEDER_VOLTAGE;
+        double intakeVoltage = 1 * -LAUNCHING_LAUNCHER_VOLTAGE;
+        double feederVoltage = 1 * LAUNCHING_FEEDER_VOLTAGE;
 
         System.out.println("Intake voltage: " + intakeVoltage + ", Feeder voltage: " + feederVoltage);
 

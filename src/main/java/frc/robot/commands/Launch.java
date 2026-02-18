@@ -18,17 +18,17 @@ public class Launch extends Command {
    
    @Override
    public void initialize(){
-    
+    System.out.println("Launching"); 
 }
 
 @Override
 public void execute(){
-    double intakeVoltage = operatorController.getLeftTriggerAxis() * LAUNCHING_LAUNCHER_VOLTAGE;
-    double feederVoltage = operatorController.getLeftTriggerAxis() * LAUNCHING_FEEDER_VOLTAGE;
+    double intakeVoltage = operatorController.getRightTriggerAxis() * LAUNCHING_LAUNCHER_VOLTAGE;
+    double feederVoltage = -operatorController.getRightTriggerAxis() * LAUNCHING_FEEDER_VOLTAGE;
     System.out.println("Intake voltage: " + intakeVoltage + ", Feeder voltage: " + feederVoltage);
 
     fuelSubsystem.setIntakeLauncherRoller(intakeVoltage);
-    fuelSubsystem.setFeederRoller(feederVoltage);
+    fuelSubsystem.setFeederRoller(-feederVoltage);
 }
 
 @Override
