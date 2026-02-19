@@ -7,7 +7,7 @@ import static frc.robot.Constants.OperatorConstants.*;
 import frc.robot.commands.Drive;
 import frc.robot.commands.Eject;
 import frc.robot.commands.ExampleAuto;
-import frc.robot.commands.IntakeSequence;
+import frc.robot.commands.Intake;
 import frc.robot.commands.LaunchSequence;
 import frc.robot.subsystems.CANDriveSubsystem;
 import frc.robot.subsystems.CANFuelSubsystem;
@@ -32,7 +32,7 @@ public class RobotContainer {
     }
 
     private void configureBindings() {
-        operatorController.leftTrigger(0).whileTrue(new IntakeSequence(fuelSubsystem, operatorController));
+        operatorController.leftTrigger(0).whileTrue(new Intake(fuelSubsystem, operatorController));
         operatorController.rightTrigger(0).whileTrue(new LaunchSequence(fuelSubsystem, operatorController));
         operatorController.b().whileTrue(new Eject(fuelSubsystem));
 
