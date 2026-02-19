@@ -17,6 +17,7 @@ public class SpinUp extends Command {
     public void initialize(){
         fuelSubsystem.setIntakeLauncherRoller(SmartDashboard.getNumber("Launching launcher roller value", LAUNCHING_LAUNCHER_VOLTAGE));
         fuelSubsystem.setFeederRoller(SmartDashboard.getNumber("Launching spin-up feeder value", SPIN_UP_FEEDER_VOLTAGE));
+        System.out.println("Starting Flywheel");
 }
 
     @Override

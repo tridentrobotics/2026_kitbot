@@ -7,7 +7,6 @@ import static frc.robot.Constants.OperatorConstants.*;
 import frc.robot.commands.Drive;
 import frc.robot.commands.Eject;
 import frc.robot.commands.ExampleAuto;
-import frc.robot.commands.Intake;
 import frc.robot.commands.IntakeSequence;
 import frc.robot.commands.LaunchSequence;
 import frc.robot.subsystems.CANDriveSubsystem;
@@ -29,12 +28,12 @@ public class RobotContainer {
 
         configureBindings();
 
-        autoChooser.setDefaultOption("Autonomous", new ExampleAuto(driveSubsystem, fuelSubsystem));
+        autoChooser.setDefaultOption("Autonomous", new ExampleAuto(driveSubsystem, fuelSubsystem, operatorController));
     }
 
     private void configureBindings() {
-        operatorController.leftTrigger(0).whileTrue(new IntakeSequence(fuelSubsystem));
-        operatorController.rightTrigger(0).whileTrue(new LaunchSequence(fuelSubsystem));
+        operatorController.leftTrigger(0).whileTrue(new IntakeSequence(fuelSubsystem, operatorController));
+        operatorController.rightTrigger(0).whileTrue(new LaunchSequence(fuelSubsystem, operatorController));
         operatorController.b().whileTrue(new Eject(fuelSubsystem));
 
 
