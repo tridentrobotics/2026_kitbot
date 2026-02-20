@@ -4,21 +4,24 @@ import static frc.robot.Constants.OperatorConstants.*;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.subsystems.CANDriveSubsystem;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
 
 public class Drive extends Command{
     CANDriveSubsystem driveSubsystem;
     double right_offset = RIGHT_OFFSET;
+    private final Joystick operatorStick;
     private final CommandXboxController operatorController;
     
 
-    public Drive(CANDriveSubsystem driveSystem, CommandXboxController controller){
+    public Drive(CANDriveSubsystem driveSystem, Joystick joystick, CommandXboxController controller){
     addRequirements(driveSystem);
     this.driveSubsystem=driveSystem;
+    this.operatorStick = joystick;
     this.operatorController = controller;
 
 
@@ -35,7 +38,28 @@ public class Drive extends Command{
 
 @Override
 public void execute() {
-    
+    if (FLIGHTSTICK_ENABLED) {
+        double forward = MathUtil.applyDeadband((Math.pow(Math.abs(operatorStick.getY()), 2)), DRIVETRAIN_DEADBAND);
+
+        double turn = MathUtil.applyDeadband((Math.pow(Math.abs(operatorStick.getTwist()), 2)), DRIVETRAIN_DEADBAND);
+
+        double leftSpeed = (forward * DRIVE_SCALING) - (turn * ROTATION_SCALING);
+
+        double rightSpeed = (forward * DRIVE_SCALING * 0.65) + (turn * ROTATION_SCALING);
+
+        driveSubsystem.tankDrive(leftSpeed, rightSpeed); 
+
+        if (Math.abs(leftSpeed - lastLeftSpeed) > EPSILON || Math.abs(rightSpeed - lastRightSpeed) > EPSILON) {
+            
+            double leftRounded = new BigDecimal(leftSpeed).setScale(4, RoundingMode.HALF_UP).doubleValue();
+            double rightRounded = new BigDecimal(rightSpeed).setScale(4, RoundingMode.HALF_UP).doubleValue();
+
+            System.out.println("Tank Drive: Left=" + leftRounded + " Right=" + rightRounded);
+            lastLeftSpeed = leftSpeed;
+            lastRightSpeed = rightSpeed;
+        }
+
+    } else {
     double forward = MathUtil.applyDeadband(-operatorController.getLeftY(), DRIVETRAIN_DEADBAND);
 
     double turn = MathUtil.applyDeadband(-operatorController.getRightX(), DRIVETRAIN_DEADBAND);
@@ -55,8 +79,7 @@ public void execute() {
         lastLeftSpeed = leftSpeed;
         lastRightSpeed = rightSpeed;
     }
-
-
+    }
 
     
 

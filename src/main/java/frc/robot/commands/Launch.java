@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.subsystems.CANFuelSubsystem;
 import static frc.robot.Constants.FuelConstants.*;
 import static frc.robot.Constants.OperatorConstants.*;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -18,6 +17,7 @@ public class Launch extends Command {
         addRequirements(fuelSystem);
         this.fuelSubsystem = fuelSystem;
         this.operatorController = controller;
+
    }
    
    @Override
@@ -30,6 +30,7 @@ private double lastFeederVoltage = 0;
 
 @Override
 public void execute(){
+    if (FLIGHTSTICK_ENABLED) {
     double intakeVoltage = operatorController.getRightTriggerAxis() * LAUNCHING_LAUNCHER_VOLTAGE;
     double feederVoltage = -operatorController.getRightTriggerAxis() * LAUNCHING_FEEDER_VOLTAGE;
     
@@ -48,6 +49,26 @@ public void execute(){
 
     fuelSubsystem.setIntakeLauncherRoller(intakeVoltage);
     fuelSubsystem.setFeederRoller(-feederVoltage);
+    } else {
+        double intakeVoltage = operatorController.getRightTriggerAxis() * LAUNCHING_LAUNCHER_VOLTAGE;
+        double feederVoltage = -operatorController.getRightTriggerAxis() * LAUNCHING_FEEDER_VOLTAGE;
+        
+        
+
+        if (Math.abs(intakeVoltage - lastIntakeVoltage) > EPSILON || Math.abs(feederVoltage - lastFeederVoltage) > EPSILON) {
+            
+                double intakeRounded = new BigDecimal(intakeVoltage).setScale(4, RoundingMode.HALF_UP).doubleValue();
+                double feederRounded = new BigDecimal(feederVoltage).setScale(4, RoundingMode.HALF_UP).doubleValue();
+
+            
+                System.out.println("Intake voltage: " + intakeRounded + ", Feeder voltage: " + feederRounded);
+                lastFeederVoltage = feederVoltage;
+                lastIntakeVoltage = intakeVoltage;
+            }
+
+        fuelSubsystem.setIntakeLauncherRoller(intakeVoltage);
+        fuelSubsystem.setFeederRoller(-feederVoltage);
+    }
 }
 
 @Override
