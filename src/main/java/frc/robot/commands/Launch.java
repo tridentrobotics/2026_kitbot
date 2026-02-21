@@ -9,11 +9,15 @@ import static frc.robot.Constants.OperatorConstants.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import choreo.auto.AutoChooser;
+import edu.wpi.first.wpilibj.DriverStation;
+
 
 public class Launch extends Command {
     CANFuelSubsystem fuelSubsystem;
     private final CommandXboxController operatorController;
     private final Joystick operatorJoystick;
+
     public Launch(CANFuelSubsystem fuelSystem, CommandXboxController controller, Joystick joystick){
         addRequirements(fuelSystem);
         this.fuelSubsystem = fuelSystem;
@@ -41,9 +45,12 @@ public void execute(){
     intakeVoltage = LAUNCHING_LAUNCHER_VOLTAGE * speedMulti;
     feederVoltage = -LAUNCHING_FEEDER_VOLTAGE * speedMulti;
 
-    } else {
+    } else if (!FLIGHTSTICK_ENABLED) {
         intakeVoltage = operatorController.getRightTriggerAxis() * LAUNCHING_LAUNCHER_VOLTAGE;
         feederVoltage = -operatorController.getRightTriggerAxis() * LAUNCHING_FEEDER_VOLTAGE;
+    } else if (DriverStation.isAutonomous()) {
+        intakeVoltage = LAUNCHING_LAUNCHER_VOLTAGE;
+        feederVoltage = LAUNCHING_FEEDER_VOLTAGE;
     }
         
 
