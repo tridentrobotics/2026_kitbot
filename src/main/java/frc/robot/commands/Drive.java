@@ -65,7 +65,7 @@ public void execute() {
         double turnExpo = applyExpo(turnDb, ROTATION_EXPO);
 
         double leftSpeed = (forwardExpo * DRIVE_SCALING) - (turnExpo * ROTATION_SCALING);
-        double rightSpeed = (forwardExpo * DRIVE_SCALING * 0.65) + (turnExpo * ROTATION_SCALING);
+        double rightSpeed = (forwardExpo * DRIVE_SCALING * RIGHT_OFFSET) + (turnExpo * ROTATION_SCALING);
 
         double maxAbs = Math.max(Math.abs(leftSpeed), Math.abs(rightSpeed));
         if (maxAbs > 1.0) {
