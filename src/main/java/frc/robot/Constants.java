@@ -35,7 +35,7 @@ public final class Constants {
         public static final double DRIVE_SCALING = 1;
         public static final double ROTATION_SCALING = 1;
         public static final double TURN_THRESHOLD = 0.15;
-        public static double RIGHT_OFFSET = 0.1;
+        public static double RIGHT_OFFSET = 0.95;
         public static double EPSILON = 0.0001;
         }
 

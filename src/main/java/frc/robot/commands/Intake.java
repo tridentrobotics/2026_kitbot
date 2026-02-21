@@ -10,17 +10,16 @@ import java.math.RoundingMode;
 
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
-
 public class Intake extends Command {
     CANFuelSubsystem fuelSubsystem;
     private final CommandXboxController operatorController;
-    private final Joystick operatorJoystick;
+    //private final Joystick operatorJoystick;
     public Intake(CANFuelSubsystem fuelSystem, CommandXboxController controller, Joystick joystick) {
         
         addRequirements(fuelSystem);
         this.fuelSubsystem = fuelSystem;
         this.operatorController = controller;
-        this.operatorJoystick = joystick;
+       // this.operatorJoystick = joystick;
     }
 
     @Override
