@@ -32,8 +32,8 @@ public final class Constants {
         public static final int OPERATOR_CONTROLLER_PORT = 0;
         public static final int OPERATOR_JOYSTICK_PORT = 1;
         public static final double DRIVETRAIN_DEADBAND = .05;
-        public static final double DRIVE_SCALING = 0.5;
-        public static final double ROTATION_SCALING = 0.1;
+        public static final double DRIVE_SCALING = 1;
+        public static final double ROTATION_SCALING = 1;
         public static final double TURN_THRESHOLD = 0.15;
         public static double RIGHT_OFFSET = 0.1;
         public static double EPSILON = 0.0001;

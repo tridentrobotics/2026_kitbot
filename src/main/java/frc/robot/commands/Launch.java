@@ -27,32 +27,18 @@ public class Launch extends Command {
 
 private double lastIntakeVoltage = 0;
 private double lastFeederVoltage = 0;
-
+private double intakeVoltage = 0;
+private double feederVoltage = 0;
 @Override
 public void execute(){
     if (FLIGHTSTICK_ENABLED) {
-    double intakeVoltage = operatorController.getRightTriggerAxis() * LAUNCHING_LAUNCHER_VOLTAGE;
-    double feederVoltage = -operatorController.getRightTriggerAxis() * LAUNCHING_FEEDER_VOLTAGE;
-    
-    
+    intakeVoltage = operatorController.getRightTriggerAxis() * LAUNCHING_LAUNCHER_VOLTAGE;
+    feederVoltage = -operatorController.getRightTriggerAxis() * LAUNCHING_FEEDER_VOLTAGE;
 
-    if (Math.abs(intakeVoltage - lastIntakeVoltage) > EPSILON || Math.abs(feederVoltage - lastFeederVoltage) > EPSILON) {
-        
-            double intakeRounded = new BigDecimal(intakeVoltage).setScale(4, RoundingMode.HALF_UP).doubleValue();
-            double feederRounded = new BigDecimal(feederVoltage).setScale(4, RoundingMode.HALF_UP).doubleValue();
-
-        
-            System.out.println("Intake voltage: " + intakeRounded + ", Feeder voltage: " + feederRounded);
-            lastFeederVoltage = feederVoltage;
-            lastIntakeVoltage = intakeVoltage;
-        }
-
-    fuelSubsystem.setIntakeLauncherRoller(intakeVoltage);
-    fuelSubsystem.setFeederRoller(-feederVoltage);
     } else {
-        double intakeVoltage = operatorController.getRightTriggerAxis() * LAUNCHING_LAUNCHER_VOLTAGE;
-        double feederVoltage = -operatorController.getRightTriggerAxis() * LAUNCHING_FEEDER_VOLTAGE;
-        
+        intakeVoltage = operatorController.getRightTriggerAxis() * LAUNCHING_LAUNCHER_VOLTAGE;
+        feederVoltage = -operatorController.getRightTriggerAxis() * LAUNCHING_FEEDER_VOLTAGE;
+    }
         
 
         if (Math.abs(intakeVoltage - lastIntakeVoltage) > EPSILON || Math.abs(feederVoltage - lastFeederVoltage) > EPSILON) {
@@ -68,7 +54,6 @@ public void execute(){
 
         fuelSubsystem.setIntakeLauncherRoller(intakeVoltage);
         fuelSubsystem.setFeederRoller(-feederVoltage);
-    }
 }
 
 @Override

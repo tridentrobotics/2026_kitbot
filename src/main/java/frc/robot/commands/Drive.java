@@ -36,17 +36,44 @@ public class Drive extends Command{
     private double lastLeftSpeed = 0;
     private double lastRightSpeed = 0;
 
+    private static final double DRIVE_EXPO = 1.5; //1=linear
+    private static final double ROTATION_EXPO = 1.5;
+
+
+    private static double applyExpo(double value, double expo) {
+
+        return Math.copySign(Math.pow(Math.abs(value), expo), value);
+    }
+
 @Override
 public void execute() {
-    if (FLIGHTSTICK_ENABLED) {
-        double forward = MathUtil.applyDeadband((Math.pow(Math.abs(operatorStick.getY()), 2)), DRIVETRAIN_DEADBAND);
 
-        double turn = MathUtil.applyDeadband((Math.pow(Math.abs(operatorStick.getTwist()), 2)), DRIVETRAIN_DEADBAND);
+        double rawForward;
+        double rawTurn;
 
-        double leftSpeed = (forward * DRIVE_SCALING) - (turn * ROTATION_SCALING);
+        if (FLIGHTSTICK_ENABLED) {
+            rawForward = operatorStick.getY();
+            rawTurn = operatorStick.getTwist();
+        } else {
+            rawForward = -operatorController.getLeftY();
+            rawTurn = -operatorController.getRightX();
+        }
+        double forwardDb = MathUtil.applyDeadband(rawForward, DRIVETRAIN_DEADBAND);
+        double turnDb = MathUtil.applyDeadband(rawTurn, DRIVETRAIN_DEADBAND);
 
-        double rightSpeed = (forward * DRIVE_SCALING * 0.65) + (turn * ROTATION_SCALING);
+        double forwardExpo = applyExpo(forwardDb, DRIVE_EXPO);
+        double turnExpo = applyExpo(turnDb, ROTATION_EXPO);
 
+        double leftSpeed = (forwardExpo * DRIVE_SCALING) - (turnExpo * ROTATION_SCALING);
+        double rightSpeed = (forwardExpo * DRIVE_SCALING * 0.65) + (turnExpo * ROTATION_SCALING);
+
+        double maxAbs = Math.max(Math.abs(leftSpeed), Math.abs(rightSpeed));
+        if (maxAbs > 1.0) {
+            leftSpeed /= maxAbs;
+            rightSpeed /= maxAbs;
+        }
+
+        // send speeds to subsystem
         driveSubsystem.tankDrive(leftSpeed, rightSpeed); 
 
         if (Math.abs(leftSpeed - lastLeftSpeed) > EPSILON || Math.abs(rightSpeed - lastRightSpeed) > EPSILON) {
@@ -58,34 +85,7 @@ public void execute() {
             lastLeftSpeed = leftSpeed;
             lastRightSpeed = rightSpeed;
         }
-
-    } else {
-    double forward = MathUtil.applyDeadband(-operatorController.getLeftY(), DRIVETRAIN_DEADBAND);
-
-    double turn = MathUtil.applyDeadband(-operatorController.getRightX(), DRIVETRAIN_DEADBAND);
-
-    double leftSpeed = (forward * DRIVE_SCALING) - (turn * ROTATION_SCALING);
-
-    double rightSpeed = (forward * DRIVE_SCALING * 0.65) + (turn * ROTATION_SCALING);
-
-    driveSubsystem.tankDrive(leftSpeed, rightSpeed); 
-
-    if (Math.abs(leftSpeed - lastLeftSpeed) > EPSILON || Math.abs(rightSpeed - lastRightSpeed) > EPSILON) {
-        
-        double leftRounded = new BigDecimal(leftSpeed).setScale(4, RoundingMode.HALF_UP).doubleValue();
-        double rightRounded = new BigDecimal(rightSpeed).setScale(4, RoundingMode.HALF_UP).doubleValue();
-
-        System.out.println("Tank Drive: Left=" + leftRounded + " Right=" + rightRounded);
-        lastLeftSpeed = leftSpeed;
-        lastRightSpeed = rightSpeed;
-    }
-    }
-
-    
-
 }
-
-
         @Override
         public void end(boolean interupted)
         {
