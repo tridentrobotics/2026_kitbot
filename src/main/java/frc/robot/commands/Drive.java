@@ -52,8 +52,8 @@ public void execute() {
         double rawTurn;
 
         if (FLIGHTSTICK_ENABLED) {
-            rawForward = operatorStick.getY();
-            rawTurn = operatorStick.getTwist();
+            rawForward = -operatorStick.getY();
+            rawTurn = -operatorStick.getTwist();
         } else {
             rawForward = -operatorController.getLeftY();
             rawTurn = -operatorController.getRightX();

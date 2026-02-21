@@ -12,7 +12,7 @@ public class ExampleAuto extends SequentialCommandGroup{
             
             new AutoDrive(driveSubsystem, 0.5, 0.0).withTimeout(0.25),
             
-            new Launch(ballSubsystem, controller).withTimeout(10));
+            new Launch(ballSubsystem, controller, joystick).withTimeout(10));
 
     }
 }

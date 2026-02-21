@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.CANFuelSubsystem;
 import static frc.robot.Constants.FuelConstants.*;
 import static frc.robot.Constants.OperatorConstants.*;
-
+import edu.wpi.first.wpilibj.Joystick;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -14,11 +14,13 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 public class Intake extends Command {
     CANFuelSubsystem fuelSubsystem;
     private final CommandXboxController operatorController;
-    public Intake(CANFuelSubsystem fuelSystem, CommandXboxController controller) {
+    private final Joystick operatorJoystick;
+    public Intake(CANFuelSubsystem fuelSystem, CommandXboxController controller, Joystick joystick) {
         
         addRequirements(fuelSystem);
         this.fuelSubsystem = fuelSystem;
         this.operatorController = controller;
+        this.operatorJoystick = joystick;
     }
 
     @Override
@@ -29,6 +31,7 @@ public class Intake extends Command {
     private double lastFeederVoltage = 0;
     private double intakeVoltage = 0;
     private double feederVoltage = 0;
+
     @Override
     public void execute() {
         if (FLIGHTSTICK_ENABLED) {

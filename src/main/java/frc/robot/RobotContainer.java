@@ -36,7 +36,7 @@ public class RobotContainer {
 
     private void configureBindings() {
         if (FLIGHTSTICK_ENABLED) {
-        new JoystickButton(operatorJoystick, 2).whileTrue(new Intake(fuelSubsystem, operatorController));
+        new JoystickButton(operatorJoystick, 2).whileTrue(new Intake(fuelSubsystem, operatorController, operatorJoystick));
 
         new JoystickButton(operatorJoystick, 1).whileTrue(new LaunchSequence(fuelSubsystem, operatorController, operatorJoystick));
 
@@ -44,7 +44,7 @@ public class RobotContainer {
         
         
         } else {
-            operatorController.leftTrigger(0).whileTrue(new Intake(fuelSubsystem, operatorController));
+            operatorController.leftTrigger(0).whileTrue(new Intake(fuelSubsystem, operatorController, operatorJoystick));
             operatorController.rightTrigger(0).whileTrue(new LaunchSequence(fuelSubsystem, operatorController, operatorJoystick));
             operatorController.b().whileTrue(new Eject(fuelSubsystem));
         }

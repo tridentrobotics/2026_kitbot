@@ -11,6 +11,6 @@ public LaunchSequence(CANFuelSubsystem fuelSubsystem, CommandXboxController cont
     
     addCommands(
         new SpinUp(fuelSubsystem).withTimeout(FuelConstants.SPIN_UP_SECONDS), 
-        new Launch(fuelSubsystem, controller));
+        new Launch(fuelSubsystem, controller, joystick));
  }
 }

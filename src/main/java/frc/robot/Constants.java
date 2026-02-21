@@ -22,13 +22,13 @@ public final class Constants {
         public static final double INTAKING_INTAKE_VOLTAGE = -9.5;
         public static final double LAUNCHING_FEEDER_VOLTAGE = -12;
         public static final double LAUNCHING_LAUNCHER_VOLTAGE = -12;
-        public static final double EJECTING_FEEDER_VOLTAGE = -11;
+        public static final double EJECTING_FEEDER_VOLTAGE = 11;
         public static final double EJECTING_LAUNCHER_VOLTAGE = 11;
         public static final double SPIN_UP_FEEDER_VOLTAGE = -2;
         public static final double SPIN_UP_SECONDS = .75;
     }
     public static final class OperatorConstants{
-        public static final boolean FLIGHTSTICK_ENABLED = false;
+        public static final boolean FLIGHTSTICK_ENABLED = true;
         public static final int OPERATOR_CONTROLLER_PORT = 0;
         public static final int OPERATOR_JOYSTICK_PORT = 1;
         public static final double DRIVETRAIN_DEADBAND = .05;
