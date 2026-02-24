@@ -10,11 +10,11 @@ public class ExampleAuto extends SequentialCommandGroup {
     public ExampleAuto(CANDriveSubsystem driveSubsystem, CANFuelSubsystem ballSubsystem, CommandXboxController controller, Joystick joystick) {
         addCommands(
             
-            new LaunchSequence(ballSubsystem, controller, joystick).withTimeout(3),
-            new AutoDrive(driveSubsystem, 0.5, 0.5).withTimeout(2),
-            new Intake(ballSubsystem, controller, joystick).withTimeout(2),
-            new AutoDrive(driveSubsystem, -0.5, -0.5).withTimeout(2),
-            new LaunchSequence(ballSubsystem, controller, joystick).withTimeout(3)
+            new LaunchSequence(ballSubsystem, controller, joystick).withTimeout(2),
+            new AutoDrive(driveSubsystem, .1, 0.1).withTimeout(.5),
+            new Intake(ballSubsystem, controller, joystick).withTimeout(1),
+            new AutoDrive(driveSubsystem, -.1, -0.1).withTimeout(0.5),
+            new LaunchSequence(ballSubsystem, controller, joystick).withTimeout(2)
         );
     }
 }

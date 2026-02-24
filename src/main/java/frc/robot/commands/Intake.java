@@ -7,6 +7,7 @@ import static frc.robot.Constants.OperatorConstants.*;
 import edu.wpi.first.wpilibj.Joystick;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import edu.wpi.first.wpilibj.DriverStation;
 
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
@@ -37,9 +38,12 @@ public class Intake extends Command {
         intakeVoltage =  INTAKING_INTAKE_VOLTAGE;
         feederVoltage =  INTAKING_FEEDER_VOLTAGE;
 
-        } else{
+        } else if (!FLIGHTSTICK_ENABLED) {
             intakeVoltage = operatorController.getLeftTriggerAxis() * INTAKING_INTAKE_VOLTAGE;
             feederVoltage = operatorController.getLeftTriggerAxis() * INTAKING_FEEDER_VOLTAGE;
+        } else if (DriverStation.isAutonomous()) {
+             intakeVoltage = INTAKING_INTAKE_VOLTAGE;
+            feederVoltage = INTAKING_FEEDER_VOLTAGE;
         }
             if (Math.abs(intakeVoltage - lastIntakeVoltage) > EPSILON || Math.abs(feederVoltage - lastFeederVoltage) > EPSILON) {
             
