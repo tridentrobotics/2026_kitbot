@@ -19,6 +19,13 @@ public class ExampleAuto extends SequentialCommandGroup {
             //new Intake(ballSubsystem, controller, joystick).withTimeout(1),
             //new AutoDrive(driveSubsystem, .2, -.15).withTimeout(5),
             //new LaunchSequence(ballSubsystem, controller, joystick).withTimeout(2)
+            new AutoDrive(driveSubsystem, .3, 0).withTimeout(2.5),
+            new Intake(ballSubsystem, controller, joystick).withTimeout(2),
+             new AutoDrive(driveSubsystem, .0, -.35).withTimeout(1),
+              new AutoDrive(driveSubsystem, .3, 0).withTimeout(1),
+            new LaunchSequence(ballSubsystem, controller, joystick).withTimeout(2)
+           // new AutoDrive(driveSubsystem, -.1, -0.25).withTimeout(2)
+    
         );
     }
 }
