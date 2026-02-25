@@ -7,12 +7,13 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import static frc.robot.Constants.OperatorConstants.*;
 import frc.robot.commands.Drive;
-import frc.robot.commands.Eject;
+import frc.robot.commands.Extake;
 import frc.robot.commands.ExampleAuto;
 import frc.robot.commands.Intake;
 import frc.robot.commands.LaunchSequence;
 import frc.robot.subsystems.CANDriveSubsystem;
 import frc.robot.subsystems.CANFuelSubsystem;
+
 
 
 public class RobotContainer {
@@ -40,13 +41,14 @@ public class RobotContainer {
 
         new JoystickButton(operatorJoystick, 1).whileTrue(new LaunchSequence(fuelSubsystem, operatorController, operatorJoystick));
 
-        new JoystickButton(operatorJoystick, 3).whileTrue(new Eject(fuelSubsystem));
+        new JoystickButton(operatorJoystick, 3).whileTrue(new Extake(fuelSubsystem));
+
         
         
         } else {
             operatorController.leftTrigger(0).whileTrue(new Intake(fuelSubsystem, operatorController, operatorJoystick));
             operatorController.rightTrigger(0).whileTrue(new LaunchSequence(fuelSubsystem, operatorController, operatorJoystick));
-            operatorController.b().whileTrue(new Eject(fuelSubsystem));
+            operatorController.b().whileTrue(new Extake(fuelSubsystem));
         }
         fuelSubsystem.setDefaultCommand(fuelSubsystem.run(() -> fuelSubsystem.stop())
     );

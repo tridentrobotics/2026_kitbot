@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.CANFuelSubsystem;
 import static frc.robot.Constants.FuelConstants.*;
 
-public class Eject extends Command {
+public class Extake extends Command {
     CANFuelSubsystem fuelSubsystem;
-    public Eject(CANFuelSubsystem fuelSystem){
+    public Extake(CANFuelSubsystem fuelSystem){
         addRequirements(fuelSystem);
         this.fuelSubsystem = fuelSystem;
     
