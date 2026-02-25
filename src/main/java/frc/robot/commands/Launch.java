@@ -8,8 +8,6 @@ import static frc.robot.Constants.FuelConstants.*;
 import static frc.robot.Constants.OperatorConstants.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-
-import choreo.auto.AutoChooser;
 import edu.wpi.first.wpilibj.DriverStation;
 
 
