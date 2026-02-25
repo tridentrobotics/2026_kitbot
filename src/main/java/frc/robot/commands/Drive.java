@@ -9,7 +9,6 @@ import frc.robot.subsystems.CANDriveSubsystem;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 
 public class Drive extends Command{
@@ -37,8 +36,6 @@ public class Drive extends Command{
     private double lastLeftSpeed = 0;
     private double lastRightSpeed = 0;
 
-    private static final double DRIVE_EXPO = 1.5; //1=linear
-    private static final double ROTATION_EXPO = 1.5;
     private static final double DRIVE_EXPO = 2; //1=linear
     private static final double ROTATION_EXPO = 2;
 
