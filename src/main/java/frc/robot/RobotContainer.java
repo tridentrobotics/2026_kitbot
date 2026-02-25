@@ -15,6 +15,7 @@ import frc.robot.subsystems.CANDriveSubsystem;
 import frc.robot.subsystems.CANFuelSubsystem;
 
 
+
 public class RobotContainer {
     private final CANDriveSubsystem driveSubsystem = new CANDriveSubsystem();
     private final CANFuelSubsystem fuelSubsystem = new CANFuelSubsystem();
@@ -41,6 +42,10 @@ public class RobotContainer {
         new JoystickButton(operatorJoystick, 1).whileTrue(new LaunchSequence(fuelSubsystem, operatorController, operatorJoystick));
 
         new JoystickButton(operatorJoystick, 3).whileTrue(new Extake(fuelSubsystem));
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7fa9c011e76e34637750afa40a60fa8b7f66029e
         
         
         } else {

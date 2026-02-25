@@ -8,6 +8,10 @@ import static frc.robot.Constants.FuelConstants.*;
 import static frc.robot.Constants.OperatorConstants.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7fa9c011e76e34637750afa40a60fa8b7f66029e
 import edu.wpi.first.wpilibj.DriverStation;
 
 
