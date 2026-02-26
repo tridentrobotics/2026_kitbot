@@ -3,7 +3,10 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+
 import static frc.robot.Constants.DriveConstants.*;
+import static frc.robot.Constants.OperatorConstants.EPSILON;
 
 public class CANDriveSubsystem extends SubsystemBase {
 
@@ -35,8 +38,13 @@ public class CANDriveSubsystem extends SubsystemBase {
 
     /** Tank drive: left stick controls left, right stick controls right */
     public void tankDrive(double leftSpeed, double rightSpeed) {
+        if ((Math.abs(rightSpeed))+(Math.abs(leftSpeed))<=(0+EPSILON)) {
+        leftLeader.setNeutralMode(NeutralMode.Brake);
+        rightLeader.setNeutralMode(NeutralMode.Brake);
+        } else {
         leftLeader.set(ControlMode.PercentOutput, leftSpeed);
         rightLeader.set(ControlMode.PercentOutput, rightSpeed);
+        }
         // followers already follow
     }
 }
