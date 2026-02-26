@@ -38,7 +38,7 @@ public class CANDriveSubsystem extends SubsystemBase {
 
     /** Tank drive: left stick controls left, right stick controls right */
     public void tankDrive(double leftSpeed, double rightSpeed) {
-        if ((Math.abs(rightSpeed))+(Math.abs(leftSpeed))<=(0+EPSILON)) {
+        if ((Math.abs(rightSpeed))+(Math.abs(leftSpeed))<=EPSILON) {
         leftLeader.setNeutralMode(NeutralMode.Brake);
         rightLeader.setNeutralMode(NeutralMode.Brake);
         } else {
