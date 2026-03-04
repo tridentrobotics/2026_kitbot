@@ -27,7 +27,7 @@ public class AutoDrive extends Command{
         double turn = zRotation;
 
         double leftSpeed = (DRIVE_SCALING * forward) - (turn*ROTATION_SCALING);
-        double rightSpeed = (DRIVE_SCALING * forward) + (turn*ROTATION_SCALING);
+        double rightSpeed = (DRIVE_SCALING * forward * RIGHT_OFFSET) + (turn*ROTATION_SCALING);
 
 
         driveSubsystem.tankDrive(leftSpeed, rightSpeed);

@@ -1,5 +1,6 @@
 package frc.robot;
-
+import edu.wpi.first.hal.AllianceStationID;
+import edu.wpi.first.wpilibj.DriverStation;
 
 
 public final class Constants {
@@ -24,8 +25,8 @@ public final class Constants {
         public static final double LAUNCHING_LAUNCHER_VOLTAGE = -12;
         public static final double EJECTING_FEEDER_VOLTAGE = 11;
         public static final double EJECTING_LAUNCHER_VOLTAGE = 11;
-        public static final double SPIN_UP_FEEDER_VOLTAGE = -2;
-        public static final double SPIN_UP_SECONDS = .75;
+        public static final double SPIN_UP_FEEDER_VOLTAGE = -6;
+        public static final double SPIN_UP_SECONDS = 6;
     }
     public static final class OperatorConstants{
         public static final boolean FLIGHTSTICK_ENABLED = true;
@@ -37,7 +38,8 @@ public final class Constants {
         public static final double TURN_THRESHOLD = 0.15;
         public static double RIGHT_OFFSET = 1.3;
         public static double EPSILON = 0.0001;
-        }
+        public static AllianceStationID alliance = DriverStation.getRawAllianceStation();
+    }
 
     
 
