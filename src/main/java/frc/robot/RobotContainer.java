@@ -25,7 +25,6 @@ public class RobotContainer {
 
     public RobotContainer() {
 
-        // 🔹 LOG ADDED HERE
         System.out.println("RobotContainer constructed");
 
         driveSubsystem.setDefaultCommand(new Drive(driveSubsystem, operatorJoystick, operatorController));
