@@ -44,8 +44,8 @@ public void execute(){
     feederVoltage = -LAUNCHING_FEEDER_VOLTAGE * speedMulti;
 
     } else if (!FLIGHTSTICK_ENABLED) {
-        intakeVoltage = operatorController.getRightTriggerAxis() * LAUNCHING_LAUNCHER_VOLTAGE;
-        feederVoltage = -operatorController.getRightTriggerAxis() * LAUNCHING_FEEDER_VOLTAGE;
+        intakeVoltage =LAUNCHING_LAUNCHER_VOLTAGE;
+        feederVoltage =LAUNCHING_FEEDER_VOLTAGE;
     } else if (DriverStation.isAutonomous()) {
         intakeVoltage = LAUNCHING_LAUNCHER_VOLTAGE;
         feederVoltage = LAUNCHING_FEEDER_VOLTAGE;

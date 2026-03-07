@@ -39,8 +39,8 @@ public class Intake extends Command {
         feederVoltage =  INTAKING_FEEDER_VOLTAGE;
 
         } else if (!FLIGHTSTICK_ENABLED) {
-            intakeVoltage = operatorController.getLeftTriggerAxis() * INTAKING_INTAKE_VOLTAGE;
-            feederVoltage = operatorController.getLeftTriggerAxis() * INTAKING_FEEDER_VOLTAGE;
+            intakeVoltage =INTAKING_INTAKE_VOLTAGE;
+            feederVoltage =INTAKING_FEEDER_VOLTAGE;
         } else if (DriverStation.isAutonomous()) {
              intakeVoltage = INTAKING_INTAKE_VOLTAGE;
             feederVoltage = INTAKING_FEEDER_VOLTAGE;
