@@ -20,23 +20,24 @@ public final class Constants {
         public static final int FEEDER_MOTOR_CURRENT_LIMIT=60; 
         public static final int LAUNCHER_MOTOR_CURRENT_LIMIT=60;
         public static final double INTAKING_FEEDER_VOLTAGE = 12;
-        public static final double INTAKING_INTAKE_VOLTAGE = -10;
+        public static final double INTAKING_INTAKE_VOLTAGE = -8;
         public static final double LAUNCHING_FEEDER_VOLTAGE = -12;
         public static final double LAUNCHING_LAUNCHER_VOLTAGE = -12;
         public static final double EJECTING_FEEDER_VOLTAGE = 11;
         public static final double EJECTING_LAUNCHER_VOLTAGE = 11;
         public static final double SPIN_UP_FEEDER_VOLTAGE = -6;
-        public static final double SPIN_UP_SECONDS = 6;
+        public static final double SPIN_UP_SECONDS = 2;
     }
     public static final class OperatorConstants{
-        public static final boolean FLIGHTSTICK_ENABLED = true;
+        public static final boolean FLIGHTSTICK_ENABLED = false;
         public static final int OPERATOR_CONTROLLER_PORT = 0;
         public static final int OPERATOR_JOYSTICK_PORT = 1;
         public static final double DRIVETRAIN_DEADBAND = .05;
         public static final double DRIVE_SCALING = 1;
-        public static final double ROTATION_SCALING = 1;
+        public static final double ROTATION_SCALING = .425;
         public static final double TURN_THRESHOLD = 0.15;
-        public static double RIGHT_OFFSET = 1.3;
+        public static double RIGHT_OFFSET = 1.1;
+        ;
         public static double EPSILON = 0.0001;
         public static AllianceStationID alliance = DriverStation.getRawAllianceStation();
     }

@@ -23,11 +23,11 @@ public class ExampleAuto extends SequentialCommandGroup {
             //Turns left from further away
             addCommands(
                 new AutoDrive(driveSubsystem, .3, 0).withTimeout(2),
-                new AutoDrive(driveSubsystem, 0, -.265).withTimeout(1),
-                new AutoDrive(driveSubsystem, .4, 0).withTimeout(1), 
-                new AutoDrive(driveSubsystem, 0, -.27).withTimeout(1),
+                new AutoDrive(driveSubsystem, 0, -.385).withTimeout(1),
+                new AutoDrive(driveSubsystem, .5, 0).withTimeout(1), 
+                new AutoDrive(driveSubsystem, 0, -.4).withTimeout(1),
                 new AutoDrive(driveSubsystem, .3, 0).withTimeout(1.1),
-                new AutoDrive(driveSubsystem, 0, -.375).withTimeout(1),
+                new AutoDrive(driveSubsystem, 0, -.65).withTimeout(1),
                 new LaunchSequence(ballSubsystem, controller, joystick).withTimeout(4.5),
                 new LaunchSequence(ballSubsystem, controller, joystick).withTimeout(4.5)
             );
@@ -38,13 +38,13 @@ public class ExampleAuto extends SequentialCommandGroup {
             //turns left from closer
             addCommands(
                 // Mirror the blue auto for red alliance
-                // Negative Y values to flip left/right movements
+                
                 new AutoDrive(driveSubsystem, .3, 0).withTimeout(2),
-                new AutoDrive(driveSubsystem, 0, -.265).withTimeout(1),
-                new AutoDrive(driveSubsystem, .2, 0).withTimeout(1),
-                new AutoDrive(driveSubsystem, 0, -.27).withTimeout(1), 
+                new AutoDrive(driveSubsystem, 0, -.385).withTimeout(1),
+                new AutoDrive(driveSubsystem, .3, 0).withTimeout(1),
+                new AutoDrive(driveSubsystem, 0, -.4).withTimeout(1), 
                 new AutoDrive(driveSubsystem, .3, 0).withTimeout(1.1),
-                new AutoDrive(driveSubsystem, 0, -.375).withTimeout(1),  
+                new AutoDrive(driveSubsystem, 0, -.65).withTimeout(1),  
                 new LaunchSequence(ballSubsystem, controller, joystick).withTimeout(4.5),
                 new LaunchSequence(ballSubsystem, controller, joystick).withTimeout(4.5)
             );
@@ -53,11 +53,11 @@ public class ExampleAuto extends SequentialCommandGroup {
                     //turns right from further away
                 addCommands(
                     new AutoDrive(driveSubsystem, .3, 0).withTimeout(2),
-                new AutoDrive(driveSubsystem, 0, .265).withTimeout(1),   // Flipped
-                new AutoDrive(driveSubsystem, .4, 0).withTimeout(1),
-                new AutoDrive(driveSubsystem, 0, .27).withTimeout(1),  // Flipped
-                new AutoDrive(driveSubsystem, .3, 0).withTimeout(1.1),
-                new AutoDrive(driveSubsystem, 0, .375).withTimeout(1),  // Flipped
+                new AutoDrive(driveSubsystem, 0, .385).withTimeout(1),   // Flipped
+                new AutoDrive(driveSubsystem, .5, 0).withTimeout(1),
+                new AutoDrive(driveSubsystem, 0, .4).withTimeout(1),  // Flipped
+                new AutoDrive(driveSubsystem, .3, 0).withTimeout(1.4),
+                new AutoDrive(driveSubsystem, 0, .65).withTimeout(1),  // Flipped
                 new LaunchSequence(ballSubsystem, controller, joystick).withTimeout(4.5),
                 new LaunchSequence(ballSubsystem, controller, joystick).withTimeout(4.5)
                 );
