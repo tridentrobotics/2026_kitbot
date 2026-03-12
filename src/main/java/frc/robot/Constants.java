@@ -8,7 +8,7 @@ public final class Constants {
         public static final int LEFT_LEADER_ID = 5;
         public static final int LEFT_FOLLOWER_ID = 6;
         public static final int RIGHT_LEADER_ID = 12;
-        public static final int RIGHT_FOLLOWER_ID = 4;
+        public static final int RIGHT_FOLLOWER_ID = 30;
         public static final int DRIVE_MOTOR_CURRENT_LIMIT = 60;
     
     }
@@ -36,7 +36,7 @@ public final class Constants {
         public static final double DRIVE_SCALING = 1;
         public static final double ROTATION_SCALING = .425;
         public static final double TURN_THRESHOLD = 0.15;
-        public static double RIGHT_OFFSET = 1.1;
+        public static double RIGHT_OFFSET = 1;
         ;
         public static double EPSILON = 0.0001;
         public static AllianceStationID alliance = DriverStation.getRawAllianceStation();
